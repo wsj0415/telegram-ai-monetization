@@ -3,116 +3,405 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Telegram 多智能体变现实战指南</title>
+  <title>Telegram 多智能体变现实战指南 - 从 0 到$10,000/月</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+  <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .gradient-bg { background: linear-gradient(135deg, #1a4d8f 0%, #0d2847 100%); }
+    * { font-family: 'Inter', sans-serif; }
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+    .lenis.lenis-scrolling iframe { pointer-events: none; }
+    .gradient-bg { background: linear-gradient(135deg, #1a4d8f 0%, #0d2847 50%, #0a1f35 100%); }
     .accent-gradient { background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%); }
+    .card-gradient { background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); }
+    .glass { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+    .glow { box-shadow: 0 0 40px rgba(255, 107, 53, 0.3); }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+    .parallax-bg { transform: translate3d(0, 0, 0); }
+    .reveal-text { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
   </style>
 </head>
-<body class="bg-gray-900 text-white">
-  <nav class="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-xl font-bold">🤖 Telegram AI 变现指南</div>
-      <a href="#pricing" class="accent-gradient px-6 py-2 rounded-full font-semibold">立即预购</a>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-white/10" data-lenis-prevent>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="text-xl font-bold">🤖 Telegram AI 变现指南</div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#features" class="hover:text-orange-400 transition">特点</a>
+          <a href="#chapters" class="hover:text-orange-400 transition">目录</a>
+          <a href="#pricing" class="hover:text-orange-400 transition">价格</a>
+          <a href="#faq" class="hover:text-orange-400 transition">FAQ</a>
+        </div>
+        <a href="#pricing" class="accent-gradient px-6 py-2 rounded-full font-semibold hover:opacity-90 transition glow">
+          立即预购
+        </a>
+      </div>
     </div>
   </nav>
 
-  <section class="gradient-bg min-h-screen flex items-center pt-16">
-    <div class="max-w-7xl mx-auto px-4 py-20">
-      <div class="text-center space-y-8">
-        <div class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-orange-400">
-          🚀 100% 完成 · 立即交付
+  <!-- Hero Section with Parallax -->
+  <section class="gradient-bg min-h-screen flex items-center pt-16 relative overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full filter blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="inline-block bg-orange-500/20 border border-orange-500/30 rounded-full px-4 py-2 text-orange-400 text-sm font-medium reveal-on-scroll">
+            🚀 100% 完成 · 立即交付
+          </div>
+          <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
+            Telegram 多智能体<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">变现实战指南</span>
+          </h1>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            从 0 到$10,000/月的自动化工作流搭建指南
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://gumroad.com/l/telegram-ai-monetization" class="accent-gradient px-8 py-4 rounded-full font-bold text-lg hover:opacity-90 transition glow text-center">
+              限时早鸟 $19.99 →
+            </a>
+            <a href="#chapters" class="border border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition text-center">
+              查看目录
+            </a>
+          </div>
+          <div class="flex items-center gap-6 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> 7 章完整内容
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> 完整代码
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-green-400">✓</span> 立即交付
+            </div>
+          </div>
         </div>
-        <h1 class="text-5xl md:text-6xl font-extrabold">
-          Telegram 多智能体<br>
-          <span class="text-orange-400">变现实战指南</span>
-        </h1>
-        <p class="text-xl text-gray-300">从 0 到$10,000/月的自动化工作流搭建指南</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://gumroad.com/l/telegram-ai-monetization" class="accent-gradient px-8 py-4 rounded-full font-bold text-lg">
-            限时早鸟 $19.99 →
-          </a>
-          <a href="#chapters" class="border border-white/30 px-8 py-4 rounded-full font-semibold text-lg">
-            查看目录
-          </a>
-        </div>
-        <div class="flex justify-center gap-6 text-sm text-gray-400">
-          <span>✓ 7 章完整内容</span>
-          <span>✓ 完整代码</span>
-          <span>✓ 立即交付</span>
+        <div class="relative">
+          <div class="card-gradient rounded-2xl p-8 border border-white/10 glow animate-float">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <span class="text-gray-400">完成度</span>
+                <span class="text-orange-400 font-bold">100%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-3">
+                <div class="accent-gradient h-3 rounded-full" style="width: 100%"></div>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">7</div>
+                  <div class="text-sm text-gray-400">章节</div>
+                </div>
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">35K</div>
+                  <div class="text-sm text-gray-400">字数</div>
+                </div>
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">$10K</div>
+                  <div class="text-sm text-gray-400">月收入目标</div>
+                </div>
+                <div class="card-gradient p-4 rounded-xl">
+                  <div class="text-3xl font-bold text-orange-400">85%</div>
+                  <div class="text-sm text-gray-400">毛利率</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="chapters" class="bg-gray-800 py-20">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-16">完整目录</h2>
+  <!-- Social Proof -->
+  <section class="bg-gray-900 py-12 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-gray-400 mb-8">基于真实实战经验 · 已验证的变现方法论</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center reveal-on-scroll">
+          <div class="text-4xl font-bold text-orange-400 mb-2">3 个</div>
+          <div class="text-gray-400">真实案例拆解</div>
+        </div>
+        <div class="text-center reveal-on-scroll" style="transition-delay: 0.1s">
+          <div class="text-4xl font-bold text-orange-400 mb-2">$47K</div>
+          <div class="text-gray-400">月收入案例</div>
+        </div>
+        <div class="text-center reveal-on-scroll" style="transition-delay: 0.2s">
+          <div class="text-4xl font-bold text-orange-400 mb-2">1-2 周</div>
+          <div class="text-gray-400">ROI 回本周期</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="bg-gray-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">为什么需要这本书？</h2>
+        <p class="text-xl text-gray-400">Telegram + AI 智能体是 2026 年最大的变现机会，但 90% 的人还不知道如何开始</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card-gradient p-8 rounded-2xl border border-white/10 reveal-on-scroll hover:scale-105 transition-transform duration-300">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-bold mb-3">实战导向</h3>
+          <p class="text-gray-400">不是理论，是经过验证的实战方法。每章都有可执行的代码和脚本。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10 reveal-on-scroll hover:scale-105 transition-transform duration-300" style="transition-delay: 0.1s">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-xl font-bold mb-3">数据驱动</h3>
+          <p class="text-gray-400">基于 3 个真实案例拆解，$15K/$20K/$12K 月收入案例详细分析。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10 reveal-on-scroll hover:scale-105 transition-transform duration-300" style="transition-delay: 0.2s">
+          <div class="text-4xl mb-4">🛠️</div>
+          <h3 class="text-xl font-bold mb-3">工具完整</h3>
+          <p class="text-gray-400">包含完整代码仓库、提示词模板库、工具清单、ROI 计算器。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10 reveal-on-scroll hover:scale-105 transition-transform duration-300" style="transition-delay: 0.3s">
+          <div class="text-4xl mb-4">💰</div>
+          <h3 class="text-xl font-bold mb-3">变现路径</h3>
+          <p class="text-gray-400">从 0 到$10,000/月的完整路径，3 种变现模式：电子书/SaaS/AOaaS。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10 reveal-on-scroll hover:scale-105 transition-transform duration-300" style="transition-delay: 0.4s">
+          <div class="text-4xl mb-4">🤖</div>
+          <h3 class="text-xl font-bold mb-3">自动化</h3>
+          <p class="text-gray-400">完整的自动化工作流，从痛点发现到产品生成到销售发布。</p>
+        </div>
+        <div class="card-gradient p-8 rounded-2xl border border-white/10 reveal-on-scroll hover:scale-105 transition-transform duration-300" style="transition-delay: 0.5s">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold mb-3">快速启动</h3>
+          <p class="text-gray-400">1 小时创建 Bot，24 小时内上架第一个产品，1-2 周看到收入。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chapters -->
+  <section id="chapters" class="bg-gray-900 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">完整目录</h2>
+        <p class="text-xl text-gray-400">7 章完整内容 + 附录，约 35,000 字</p>
+      </div>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300">
           <span class="text-orange-400 font-bold">第 1 章</span>
           <h3 class="text-lg font-semibold mt-2">为什么选择 Telegram + AI 智能体</h3>
+          <p class="text-gray-400 text-sm mt-2">8 亿用户市场，AI 智能体变现优势，3 个真实案例</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.1s">
           <span class="text-orange-400 font-bold">第 2 章</span>
           <h3 class="text-lg font-semibold mt-2">搭建你的第一个智能体</h3>
+          <p class="text-gray-400 text-sm mt-2">Bot 创建、基础配置、第一个自动化工作流</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.2s">
           <span class="text-orange-400 font-bold">第 3 章</span>
           <h3 class="text-lg font-semibold mt-2">市场痛点发现系统</h3>
+          <p class="text-gray-400 text-sm mt-2">X/Twitter/Reddit/知乎监控，自动化评分</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.3s">
           <span class="text-orange-400 font-bold">第 4 章</span>
           <h3 class="text-lg font-semibold mt-2">从痛点到产品</h3>
+          <p class="text-gray-400 text-sm mt-2">4 维度评估框架，电子书/SaaS/AOaaS 转化</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.4s">
           <span class="text-orange-400 font-bold">第 5 章</span>
           <h3 class="text-lg font-semibold mt-2">变现渠道搭建</h3>
+          <p class="text-gray-400 text-sm mt-2">Gumroad/小商店、Stripe 支付、加密货币</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.5s">
           <span class="text-orange-400 font-bold">第 6 章</span>
           <h3 class="text-lg font-semibold mt-2">自动化营销</h3>
+          <p class="text-gray-400 text-sm mt-2">Telegram 频道、邮件营销、多平台联动</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.6s">
           <span class="text-orange-400 font-bold">第 7 章</span>
           <h3 class="text-lg font-semibold mt-2">规模化运营</h3>
+          <p class="text-gray-400 text-sm mt-2">从$1K 到$10K 的路径，多产品线管理</p>
         </div>
-        <div class="bg-gray-700/50 p-6 rounded-xl">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll hover:border-orange-500/50 transition-colors duration-300" style="transition-delay: 0.7s">
           <span class="text-orange-400 font-bold">附录</span>
           <h3 class="text-lg font-semibold mt-2">代码/模板/工具/计算器</h3>
+          <p class="text-gray-400 text-sm mt-2">完整 GitHub 仓库、50+ 提示词、ROI 计算器</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="bg-gray-900 py-20">
-    <div class="max-w-lg mx-auto px-4">
-      <div class="bg-gray-800 p-8 rounded-3xl border-2 border-orange-500 text-center">
-        <div class="text-gray-400 text-lg line-through">$49.99</div>
-        <div class="text-6xl font-extrabold text-orange-400 mt-2">$19.99</div>
-        <div class="text-gray-400 mt-2">限时早鸟 · 节省 60%</div>
-        <div class="space-y-4 my-8 text-left">
-          <div>✓ 7 章完整内容 (35,000 字)</div>
-          <div>✓ 完整代码仓库 (GitHub)</div>
-          <div>✓ 提示词模板库 (50+ 模板)</div>
-          <div>✓ ROI 计算器</div>
-          <div>✓ 免费更新 1 年</div>
+  <!-- Pricing -->
+  <section id="pricing" class="bg-gray-800 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">限时早鸟价</h2>
+        <p class="text-xl text-gray-400">前 100 名专享 · 节省 60%</p>
+      </div>
+      <div class="max-w-lg mx-auto">
+        <div class="card-gradient p-8 rounded-3xl border-2 border-orange-500/50 glow relative overflow-hidden reveal-on-scroll">
+          <div class="absolute top-0 right-0 accent-gradient text-white px-6 py-2 rounded-bl-2xl font-bold">
+            限时优惠
+          </div>
+          <div class="text-center mb-8">
+            <div class="text-gray-400 text-lg line-through">$49.99</div>
+            <div class="text-6xl font-extrabold text-orange-400 mt-2">$19.99</div>
+            <div class="text-gray-400 mt-2">一次性付费 · 永久访问</div>
+          </div>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <span class="text-xl text-green-400">✓</span>
+              <span>7 章完整内容 (35,000 字)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl text-green-400">✓</span>
+              <span>完整代码仓库 (GitHub)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl text-green-400">✓</span>
+              <span>提示词模板库 (50+ 模板)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl text-green-400">✓</span>
+              <span>ROI 计算器</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl text-green-400">✓</span>
+              <span>私密 Discord 社群 (前 100 名)</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xl text-green-400">✓</span>
+              <span>免费更新 1 年</span>
+            </div>
+          </div>
+          <a href="https://gumroad.com/l/telegram-ai-monetization" class="w-full accent-gradient block py-4 rounded-full font-bold text-lg hover:opacity-90 transition glow text-center">
+            立即预购 →
+          </a>
+          <p class="text-center text-gray-400 text-sm mt-4">
+            📚 电子书格式：PDF + ePub + Markdown<br>
+            🚀 立即交付：支付后自动发送下载链接
+          </p>
         </div>
-        <a href="https://gumroad.com/l/telegram-ai-monetization" class="w-full accent-gradient block py-4 rounded-full font-bold text-lg">
-          立即预购 →
-        </a>
-        <p class="text-gray-400 text-sm mt-4">📚 PDF + ePub + Markdown · 立即交付</p>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-800 py-12 text-center text-gray-400">
-    <p>© 2026 KilroyContentBot. All rights reserved.</p>
-    <div class="mt-4 space-x-4">
-      <a href="https://github.com/wsj0415/telegram-ai-monetization" class="hover:text-white">GitHub</a>
-      <a href="https://notion.so/31949e5eec0f8160a7ffe950177a8b22" class="hover:text-white">Notion</a>
+  <!-- FAQ -->
+  <section id="faq" class="bg-gray-900 py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">常见问题</h2>
+      </div>
+      <div class="space-y-6">
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll">
+          <h3 class="text-lg font-bold mb-2">Q: 需要编程基础吗？</h3>
+          <p class="text-gray-400">基础编程知识有帮助，但不是必须。本书提供完整代码，复制粘贴即可使用。</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll" style="transition-delay: 0.1s">
+          <h3 class="text-lg font-bold mb-2">Q: 需要多少启动资金？</h3>
+          <p class="text-gray-400">最少$100 即可启动：域名$10/年，服务器$5/月，API 费用$50/月，营销$35/月。</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll" style="transition-delay: 0.2s">
+          <h3 class="text-lg font-bold mb-2">Q: 多久能看到收入？</h3>
+          <p class="text-gray-400">最快 1-2 周：第 1 周创建产品，第 2 周获得前 10 个用户，第 3-4 周$1,000+/月。</p>
+        </div>
+        <div class="card-gradient p-6 rounded-xl border border-white/10 reveal-on-scroll" style="transition-delay: 0.3s">
+          <h3 class="text-lg font-bold mb-2">Q: 如何获取更新？</h3>
+          <p class="text-gray-400">购买后加入私密 Discord 社群，所有更新会自动推送。GitHub 仓库也会同步更新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="gradient-bg py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl font-bold mb-6">准备好开始 AI 变现了吗？</h2>
+      <p class="text-xl text-gray-300 mb-8">
+        限时早鸟价 $19.99，前 100 名赠送 Discord 社群会员
+      </p>
+      <a href="https://gumroad.com/l/telegram-ai-monetization" class="accent-gradient inline-block px-12 py-5 rounded-full font-bold text-xl hover:opacity-90 transition glow">
+        立即预购 →
+      </a>
+      <p class="text-gray-400 mt-6">
+        📚 7 章完整内容 · 35,000 字 · 永久访问
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-gray-400">
+          © 2026 KilroyContentBot. All rights reserved.
+        </div>
+        <div class="flex gap-6">
+          <a href="https://github.com/wsj0415/telegram-ai-monetization" class="text-gray-400 hover:text-white transition" target="_blank">GitHub</a>
+          <a href="https://t.me/kilroy_ai_insights" class="text-gray-400 hover:text-white transition" target="_blank">Telegram</a>
+          <a href="https://notion.so/31949e5eec0f8160a7ffe950177a8b22" class="text-gray-400 hover:text-white transition" target="_blank">Notion</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <!-- Initialize Smooth Scroll & Animations -->
+  <script>
+    // Initialize Lenis Smooth Scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Reveal on Scroll Animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal-on-scroll');
+      const windowHeight = window.innerHeight;
+      const elementVisible = 150;
+
+      reveals.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - elementVisible) {
+          element.classList.add('active');
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    // Initialize reveal styles
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(50px)';
+      el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+
+    // Listen to scroll
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
 </body>
 </html>
